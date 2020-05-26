@@ -18,8 +18,9 @@ class WordList:
         
 
     def extract_words(self):
+        import string
         words = self.text.lower().split()
-        return [word.strip() for word in words]
+        return [word.strip(string.punctuation) for word in words]
 
     def remove_stop_words(self):
        return [
@@ -40,13 +41,17 @@ class FreqPrinter:
         self.freqs = freqs
 
     def print_freqs(self):
-        
-        
+        top_ten = []
+        top_ten_words = []
         i = 0
         for item in self.freqs.items():
             if i < 10:
-                print(f"{item[0].rjust(12)} | {str(item[1]).ljust(3)}{item[1] * '*'}")
+                top_ten.append(item)
+                top_ten_words.append(item[0])
                 i += 1
+        longest_word = max(top_ten_words, key=len)
+        for item in top_ten:
+            print(f"{item[0].rjust(len(longest_word)+2)} | {str(item[1]).ljust(3)}{item[1] * '*'}")
 
 if __name__ == "__main__":
     import argparse
