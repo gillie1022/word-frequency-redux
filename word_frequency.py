@@ -15,7 +15,6 @@ class FileReader:
 class WordList:
     def __init__(self, text):
         self.text = text
-        
 
     def extract_words(self):
         import string
