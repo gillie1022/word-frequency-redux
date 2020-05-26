@@ -51,7 +51,7 @@ class FreqPrinter:
                 i += 1
         longest_word = max(top_ten_words, key=len)
         for item in top_ten:
-            print(f"{item[0].rjust(len(longest_word)+2)} | {str(item[1]).ljust(3)}{item[1] * '*'}")
+            print(f"{item[0].rjust(len(longest_word) + 2)} | {str(item[1]).ljust(3)}{item[1] * '*'}")
 
 if __name__ == "__main__":
     import argparse
