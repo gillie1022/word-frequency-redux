@@ -22,11 +22,10 @@ class WordList:
         return [word.strip(string.punctuation) for word in words]
 
     def remove_stop_words(self):
-       return [
-           word
-           for word in self.extract_words()
-           if not word in STOP_WORDS
-       ]
+        return [
+            word 
+            for word in self.extract_words() 
+            if not word in STOP_WORDS]
 
     def get_freqs(self):
         freqs = {
