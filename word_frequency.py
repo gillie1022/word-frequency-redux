@@ -34,7 +34,8 @@ class WordList:
             word: self.remove_stop_words().count(word)
             for word in self.remove_stop_words()
         }
-        return dict(sorted(freqs.items(), key=lambda seq: seq[1], reverse=True))
+        alpha_freqs = dict(sorted(freqs.items()))
+        return dict(sorted(alpha_freqs.items(), key=lambda seq: seq[1], reverse=True))
 
 class FreqPrinter:
     def __init__(self, freqs):
