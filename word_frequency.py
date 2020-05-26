@@ -4,8 +4,6 @@ STOP_WORDS = [
     'were', 'will', 'with'
 ]
 
-import string
-
 class FileReader:
     def __init__(self, filename):
         self.filename = filename.open()
@@ -21,7 +19,7 @@ class WordList:
 
     def extract_words(self):
         words = self.text.lower().split()
-        return [word.strip(string.punctuation) for word in words]
+        return [word.strip() for word in words]
 
     def remove_stop_words(self):
        return [
@@ -42,6 +40,8 @@ class FreqPrinter:
         self.freqs = freqs
 
     def print_freqs(self):
+        
+        
         i = 0
         for item in self.freqs.items():
             if i < 10:
