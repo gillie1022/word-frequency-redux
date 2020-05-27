@@ -15,22 +15,23 @@ class FileReader:
 class WordList:
     def __init__(self, text):
         self.text = text
+        self.words =[]
 
     def extract_words(self):
         import string
-        words = self.text.lower().split()
-        return [word.strip(string.punctuation) for word in words]
+        self.words = self.text.lower().split()
+        self.words = [word.strip(string.punctuation) for word in self.words]
 
     def remove_stop_words(self):
-        return [
+        self.words = [
             word 
-            for word in self.extract_words() 
+            for word in self.words
             if not word in STOP_WORDS]
 
     def get_freqs(self):
         freqs = {
-            word: self.remove_stop_words().count(word)
-            for word in self.remove_stop_words()
+            word: self.words.count(word)
+            for word in self.words
         }
         alpha_freqs = dict(sorted(freqs.items()))
         return dict(sorted(alpha_freqs.items(), key=lambda seq: seq[1], reverse=True))
