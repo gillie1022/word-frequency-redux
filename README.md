@@ -4,4 +4,4 @@ Given a text file, this program returns a list of the ten most used words in the
 
 Command to run the program is:
 
-python3 word_frequency.py <text file>
+"python3 word_frequency.py <text file>"
